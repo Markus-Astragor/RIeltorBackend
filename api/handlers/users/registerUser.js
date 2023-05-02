@@ -7,13 +7,13 @@ const {validationResult} = require('express-validator');
 
 module.exports.loginUser = async (req,res) =>{
 
-    const validationErrors = validationResult(req);
+    // const validationErrors = validationResult(req);
 
-    if(!validationErrors.isEmpty()){
-        return res.status(400).send(errors.array());
-    }
+    // if(!validationErrors.isEmpty()){
+    //     return res.status(400).send(errors.array());
+    // }
 
-    const {password, email, userName} = req.query;
+    const {password, email, userName} = req.body;
 
 
     const user = await UserModel.findOne({email: email});
@@ -35,7 +35,7 @@ module.exports.loginUser = async (req,res) =>{
     const doc = await newUser.save();
 
 
-    const {passwordHash, ...userDate} = user._doc;
+    const {passwordHash, ...userDate} = doc._doc;
 
     const token = jwt.sign({_id: doc._id},'secret123', { expiresIn: '5d'});
 

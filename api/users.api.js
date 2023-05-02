@@ -8,7 +8,7 @@ const {users} = require('./handlers/index.js');
 
 const router = Router();
 
-router.post('/registration', wrapperApi(users.loginUser));
+router.post('/registration',  wrapperApi(users.loginUser));
 
 
 

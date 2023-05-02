@@ -5,7 +5,7 @@ module.exports.wrapperApi = (handler) =>{
         try {
             await handler(req,res);
         } catch (error) {
-            console.log('[wrapperApi]', error.toString(), err);
+            console.log('[wrapperApi]', error.toString(), error);
             return res.status(500).send({message: `Internal server error: ${error.toString()}`});
         }
     };
