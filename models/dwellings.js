@@ -4,6 +4,7 @@ const schema = new Schema({
     rieltor_id: Types.ObjectId,
     dwelling_type: {type: String, required: true},
     status: {type: String, required: true},
+    city: {type: String, required: true},
     price: {type: Number, required: true},
     oblast: {type: String, required: true},
     district: {type: String, required: true},

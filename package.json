@@ -17,6 +17,7 @@
     "express-validator": "^7.0.1",
     "generate-api-key": "^1.0.2",
     "jsonwebtoken": "^9.0.0",
+    "mongodb": "^5.5.0",
     "mongoose": "^7.1.0"
   }
 }

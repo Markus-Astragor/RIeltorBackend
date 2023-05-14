@@ -18,9 +18,6 @@ await mongo.connectMongo(process.env.MONGO_URI);
 
 app.use(API.router);
 
-app.get('/lol', (req,res) =>{
-    res.send('Hi');
-})
 
 app.listen(process.env.PORT, () =>{
     console.log('Server was started on port', process.env.PORT);
