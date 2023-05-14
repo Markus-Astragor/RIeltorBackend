@@ -1,3 +1,4 @@
 module.exports = {
-    ...require('./getUserDwellings')
+    ...require('./getUserDwellings'),
+    ...require('./addToUserDwellings')
 }
