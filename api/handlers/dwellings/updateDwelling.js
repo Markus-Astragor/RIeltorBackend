@@ -2,7 +2,7 @@
 const { body } = require('express-validator');
 const {DwellingModel} = require('../../../models/dwellings.js');
 
-
+const jwt = require('jsonwebtoken');
 
 module.exports.updateDwelling = async (req,res) =>{
 

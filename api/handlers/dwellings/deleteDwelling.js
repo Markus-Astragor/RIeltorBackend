@@ -17,8 +17,6 @@ module.exports.deleteDwelling = async (req,res) =>{
     }
 
     const deleted_post = await DwellingModel.findByIdAndDelete(id);
-    console.log(deleted_post);
-
     const delete_post_from_saved_list = await FavoriteListModel.updateMany({}, {$pull: {dwelling_lists: id}}); // Видалення id поста з Saved list користувачів
 
 

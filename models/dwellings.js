@@ -4,7 +4,7 @@ const { boolean } = require('webidl-conversions');
 const schema = new Schema({
     rieltor_id: String,
     dwelling_type: {type: String, required: true},
-    status: {type: boolean, required: true},
+    status: {type: Boolean, required: true},
     city: {type: String, required: true},
     price: {type: Number, required: true},
     oblast: {type: String, required: true},

@@ -5,4 +5,5 @@ module.exports = {
     ...require('./updateDwelling'),
     ...require('./getAllDwellings'),
     ...require('./createDwelling'),
+    ...require('./filterDwellings')
 }

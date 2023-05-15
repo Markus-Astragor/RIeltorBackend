@@ -7,11 +7,11 @@ const {validationResult} = require('express-validator');
 
 module.exports.registerUser = async (req,res) =>{
 
-    // const validationErrors = validationResult(req);
+    const validationErrors = validationResult(req);
 
-    // if(!validationErrors.isEmpty()){
-    //     return res.status(400).send(errors.array());
-    // }
+    if(!validationErrors.isEmpty()){
+        return res.status(400).send(errors.array());
+    }
 
     const {password, email, userName} = req.body;
 

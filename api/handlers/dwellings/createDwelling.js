@@ -18,7 +18,7 @@ module.exports.createDwelling = async (req, res) => {
         return res.status(404).send('Поле міста не повинне бути порожнім');
     }
 
-    if(typeof(price) !== Number || price <= 0)
+    if(typeof(price) !== Number && price <= 0)
     {
         return res.status(404).send('Ціна повинна бути додатною і не бути в лапках');
     }
@@ -33,27 +33,29 @@ module.exports.createDwelling = async (req, res) => {
         return res.status(404).send('Поле району повинне бути заповненим');
     }
 
-    if(rooms !== Number || rooms <= 0)
+    if(rooms !== Number && rooms <= 0)
     {
         return res.status(404).send('Кількість кімнат повинна бути додатною і бути числом');
     }
 
-    if(area !== Number || area <= 0)
+    
+    if(typeof(area) !== 'number' && area <= 0)
     {
         return res.status(404).send('Поле площі повинне бути додатним числом');
     }
 
-    if(coordinates.lattitude !== Number || coordinates.longitude !== Number || coordinates.lattitude == '' || coordinates.longitude == '')
-    {
-        return res.status(404).send('Координати повинні бути числом');
-    }
+    // if(coordinates.lattitude !== Number || coordinates.longitude !== Number || coordinates.lattitude == '' || coordinates.longitude == '')
+    // {
+    //     return res.status(404).send('Координати повинні бути числом');
+    // }
 
     if(description == '')
     {
         return res.status(404).send('Поле опису повинне бути заповнене');
     }
 
-    if(building_state !== String)
+
+    if(typeof(dwelling_type) !== 'string')
     {
         return res.status(404).send('Поле повинне містити текст');
     }
