@@ -21,8 +21,6 @@ module.exports.addToUserDwellings = async (req,res) => {
 
     const update_list = await FavoriteListModel.findOneAndUpdate({user_id: decoded_token._id}, {$push: {dwelling_lists: dwelling_id}});
 
-
-
     console.log(update_list);
 
     res.status(200).send("List was updated");

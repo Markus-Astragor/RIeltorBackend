@@ -8,7 +8,7 @@ const schema = new Schema({
     passwordHash: {type: String, required: true},
     name: {type: String, required: true},
     contacts: {telegram: [Number], viber: [Number], email: String},
-    role: String
+    role: {type: String, required:true}
 })
 
 const UserModel = model('users', schema, 'users');

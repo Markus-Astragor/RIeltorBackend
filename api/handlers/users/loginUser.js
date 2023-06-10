@@ -18,7 +18,8 @@ module.exports.loginUser = async (req,res) => {
         return res.status(400).send("Невірно вказаний email або пароль");
     }
 
-    const passwordIsEqual = bcrypt.compare(password, user.passwordHash);
+    const passwordIsEqual = await bcrypt.compare(password, user.passwordHash);
+
     if(!passwordIsEqual) {
         return res.status(400).send("Невірно вказаний email або пароль");
     }

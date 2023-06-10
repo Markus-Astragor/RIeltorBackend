@@ -1,7 +1,7 @@
 
-const {DwelingModel} = require('../models/dwelings.js');
+const {DwellingModel} = require('../../../models/dwellings.js');
 
-
+// Подумати над логікою 
 module.exports.filterDwellings = async (req,res) => {
 
 
@@ -34,6 +34,7 @@ module.exports.filterDwellings = async (req,res) => {
         let temp_parsed= JSON.parse(value);
 
             if(value.split('gt').length -1 >= 2 || value.split('lt').length-1 >= 2) {
+              
                 return res.status(400).send('Два однакові параметри були передані');
             }
 
@@ -64,7 +65,7 @@ module.exports.filterDwellings = async (req,res) => {
       }
 
 
-      const doc = await DwelingModel.find(queryDb);                            
+      const doc = await DwellingModel.find(queryDb);                            
 
       res.status(200).send(doc);
 
@@ -74,8 +75,3 @@ module.exports.filterDwellings = async (req,res) => {
   }
 
 }
-
-
-
-
-module.exports = {router};

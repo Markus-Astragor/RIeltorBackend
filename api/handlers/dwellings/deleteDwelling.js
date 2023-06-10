@@ -16,9 +16,8 @@ module.exports.deleteDwelling = async (req,res) =>{
         return res.status(400).send('Post with such id was not found');
     }
 
-    const deleted_post = await DwellingModel.findByIdAndDelete(id);
-    const delete_post_from_saved_list = await FavoriteListModel.updateMany({}, {$pull: {dwelling_lists: id}}); // Видалення id поста з Saved list користувачів
-
+    await DwellingModel.findByIdAndDelete(id);
+    await FavoriteListModel.updateMany({}, {$pull: {dwelling_lists: id}}); // Видалення id поста з Saved list користувачів
 
     res.status(200).send("Post was deleted");
 

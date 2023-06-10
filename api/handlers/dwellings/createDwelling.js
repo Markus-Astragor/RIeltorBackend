@@ -8,7 +8,9 @@ module.exports.createDwelling = async (req, res) => {
     const decoded_token = jwt.verify(token, 'secret123');
     const id = decoded_token._id;
 
-    if(dwelling_type == '' || undefined)
+
+
+    if(dwelling_type == '' || dwelling_type == undefined)
     {
         return res.status(404).send('Тип квартири не повинен бути порожнім');
     }
@@ -39,15 +41,14 @@ module.exports.createDwelling = async (req, res) => {
     }
 
     
-    if(typeof(area) !== 'number' && area <= 0)
+    if(typeof(area) !== 'number' || area <= 0)
     {
         return res.status(404).send('Поле площі повинне бути додатним числом');
     }
 
-    // if(coordinates.lattitude !== Number || coordinates.longitude !== Number || coordinates.lattitude == '' || coordinates.longitude == '')
-    // {
-    //     return res.status(404).send('Координати повинні бути числом');
-    // }
+    if( (typeof(coordinates.lattitude) !== 'number') || typeof(coordinates.longitude) !== 'number'){ 
+        return res.status(404).send('Координати повинні бути числом');
+    }
 
     if(description == '')
     {

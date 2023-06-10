@@ -18,7 +18,7 @@ module.exports.updateDwelling = async (req,res) =>{
 
     console.log(data);
 
-    const updated_dwelling = await DwellingModel.updateOne({_id: id}, {$set: data});
+    await DwellingModel.updateOne({_id: id}, {$set: data});
 
     res.status(200).send('Dwelling was updated')
 

@@ -12,5 +12,4 @@ module.exports.deleteFromUserDwellings = async (req,res) =>{
     const deleteFromList = await FavoriteListModel.updateOne({user_id: decoded_token._id}, {$pull: {dwelling_lists: id}});
 
     res.status(200).send('Post was deleted from saved list');
-
 } 

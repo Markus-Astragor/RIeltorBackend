@@ -13,7 +13,7 @@ module.exports.registerUser = async (req,res) =>{
         return res.status(400).send(errors.array());
     }
 
-    const {password, email, userName} = req.body;
+    const {password, email, userName,role} = req.body;
 
 
     const user = await UserModel.findOne({email: email});
@@ -29,7 +29,8 @@ module.exports.registerUser = async (req,res) =>{
     const newUser = new UserModel({
         email: email,
         passwordHash: password_hash,
-        name: userName
+        name: userName,
+        role
     })
 
     const doc = await newUser.save();
